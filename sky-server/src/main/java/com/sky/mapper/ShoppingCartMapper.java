@@ -23,7 +23,7 @@ public interface ShoppingCartMapper {
      * @param shoppingCart
      */
     @Update("update sky_take_out.shopping_cart set number = #{number} where id = #{id}")
-    void updateNumber(ShoppingCart shoppingCart);
+    void updateNumberById(ShoppingCart shoppingCart);
 
     @Insert("insert into sky_take_out.shopping_cart(name, image, user_id, dish_id, setmeal_id, dish_flavor, number, amount, create_time) "+
             "values(#{name}, #{image}, #{userId}, #{dishId}, #{setmealId}, #{dishFlavor}, #{number}, #{amount}, #{createTime})")
@@ -35,4 +35,11 @@ public interface ShoppingCartMapper {
      */
     @Delete("delete from sky_take_out.shopping_cart where user_id = #{userId}")
     void deleteByUserId(Long userId);
+
+    /**
+     * 根据id删除购物车数据
+     * @param id
+     */
+    @Delete("delete from sky_take_out.shopping_cart where id = #{id}")
+    void deleteById(Long id);
 }
