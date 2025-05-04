@@ -19,4 +19,7 @@ public interface UserMapper {
      * @param user
      */
     void insert(User user);
+
+    @Select("SELECT * FROM sky_take_out.user WHERE id = #{userId}")
+    User getById(Long userId);
 }
